@@ -1,0 +1,24 @@
+{
+  "name": "nc-news",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "test": "jest -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jack-214/nc-news.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jack-214/nc-news/issues"
+  },
+  "homepage": "https://github.com/jack-214/nc-news#readme",
+  "description": "",
+  "dependencies": {
+    "vite": "^6.3.5"
+  }
+}
