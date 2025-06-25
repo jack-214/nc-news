@@ -82,11 +82,6 @@ export default function ArticlesPage() {
                   <strong>Posted:</strong>{" "}
                   {new Date(article.created_at).toLocaleDateString()}
                 </p>
-                <img
-                  src={article.article_img_url}
-                  alt={article.title}
-                  className="article-img"
-                />
               </div>
               <div className="article-button-wrapper">
                 <Link to={`/articles/${article.article_id}`}>

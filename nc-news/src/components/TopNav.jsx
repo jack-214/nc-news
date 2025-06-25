@@ -18,17 +18,25 @@ export default function TopNav() {
     }
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.addEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
   return (
     <div className="topnav" ref={menuRef}>
       <div id="myLinks" className={showLinks ? "show" : "hide"}>
-        <Link to="/">Home</Link>
-        <Link to="/articles">Articles</Link>
-        <Link to="/topics">Topics</Link>
-        <Link to="/user">Users</Link>
+        <Link className="nav-link" to="/">
+          Home
+        </Link>
+        <Link className="nav-link" to="/articles">
+          Articles
+        </Link>
+        <Link className="nav-link" to="/topics">
+          Topics
+        </Link>
+        <Link className="nav-link" to="/user">
+          Users
+        </Link>
       </div>
       <button className="icon" onClick={toggleLinks}>
         <FaBars />
