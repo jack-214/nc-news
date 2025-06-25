@@ -51,19 +51,20 @@ export default function SingleArticlePage() {
 
   return (
     <div className="single-article-page">
-      <h2>{article.title}</h2>
-      <p>
-        <strong>Author:</strong> {article.author}
-      </p>
+      <div className="single-article-title-author">
+        <h2>{article.title}</h2>
+        <p>
+          <strong>{article.author}</strong> | <strong>{article.topic}</strong>
+        </p>
+      </div>
       <img
         src={article.article_img_url}
         alt={article.title}
         className="single-article-img"
       />
-      <p>
-        <strong>Topic:</strong> {article.topic}
-      </p>
-      <p>{article.body}</p>
+      <div className="single-article-body">
+        <p>{article.body}</p>
+      </div>
       <div className="comments-container">
         <h3>Comments</h3>
         {comments.length === 0 ? (
@@ -71,7 +72,7 @@ export default function SingleArticlePage() {
         ) : (
           <ul className="comments-list">
             {comments.map((comment) => (
-              <li key={comment.comment_id}>
+              <li className="comment-list-item" key={comment.comment_id}>
                 <p>
                   {comment.author} | {dayjs(comment.created_at).fromNow()} |
                   says:
