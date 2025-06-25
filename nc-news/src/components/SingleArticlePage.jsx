@@ -1,9 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 
 export default function SingleArticlePage() {
   const { article_id } = useParams();
   const [article, setArticle] = useState(null);
+  const [comments, setComments] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -26,7 +30,22 @@ export default function SingleArticlePage() {
     fetchArticle();
   }, [article_id]);
 
-  if (loading) return <p>Leading article...</p>;
+  useEffect(() => {
+    const fetchComments = async () => {
+      try {
+        const res = await fetch(
+          `https://northcoders-news-be-ngc3.onrender.com/api/articles/${article_id}/comments`
+        );
+        const data = await res.json();
+        setComments(data.comments);
+      } catch (err) {
+        console.error("Error fetching comments:", err.message);
+      }
+    };
+    fetchComments();
+  }, [article_id]);
+
+  if (loading) return <p>Loading article...</p>;
   if (error) return <p>Error: {error}</p>;
   if (!article) return <p>No article found</p>;
 
@@ -36,10 +55,35 @@ export default function SingleArticlePage() {
       <p>
         <strong>Author:</strong> {article.author}
       </p>
+      <img
+        src={article.article_img_url}
+        alt={article.title}
+        className="single-article-img"
+      />
       <p>
         <strong>Topic:</strong> {article.topic}
       </p>
       <p>{article.body}</p>
+      <div className="comments-container">
+        <h3>Comments</h3>
+        {comments.length === 0 ? (
+          <p>No comments yet.</p>
+        ) : (
+          <ul className="comments-list">
+            {comments.map((comment) => (
+              <li key={comment.comment_id}>
+                <p>
+                  {comment.author} | {dayjs(comment.created_at).fromNow()} |
+                  says:
+                </p>
+                <p>{comment.body}</p>
+                <p>Votes: {comment.votes}</p>
+                <p></p>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 }

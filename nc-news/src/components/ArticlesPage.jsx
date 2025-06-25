@@ -30,29 +30,37 @@ export default function ArticlesPage() {
         {articles.map((article) => (
           <li key={article.article_id} className="article-card">
             <h3>{article.title}</h3>
-            <div className="article-info">
-              <p>
-                <strong>Author:</strong> {article.author}
-              </p>
-              <p>
-                <strong>Topic:</strong> {article.topic}
-              </p>
-              <p>
-                <strong>Votes:</strong> {article.votes} |{" "}
-                <strong>Comments:</strong> {article.comment_count}
-              </p>
-              <p>
-                <strong>Posted on:</strong>{" "}
-                {new Date(article.created_at).toLocaleDateString()}
-              </p>
-              <img
-                src={article.article_img_url}
-                alt={article.title}
-                className="article-img"
-              />
-              <Link to={`/articles/${article.article_id}`}>
-                <button>Read more</button>
-              </Link>
+            <div className="article-info-row">
+              <div className="article-info">
+                <p>
+                  <strong>{article.author}</strong> |{" "}
+                </p>
+                <p>
+                  <strong>
+                    {article.topic[0].toUpperCase() +
+                      article.topic.slice(1).toLowerCase()}
+                  </strong>{" "}
+                  |{" "}
+                </p>
+                <strong>Votes:</strong>{" "}
+                <button className="vote-button">{article.votes} +</button>{" "}
+                <button className="vote-button">-</button> |{" "}
+                <strong>Comments:</strong> {article.comment_count} |
+                <p>
+                  <strong>Posted:</strong>{" "}
+                  {new Date(article.created_at).toLocaleDateString()}
+                </p>
+                <img
+                  src={article.article_img_url}
+                  alt={article.title}
+                  className="article-img"
+                />
+              </div>
+              <div className="article-button-wrapper">
+                <Link to={`/articles/${article.article_id}`}>
+                  <button className="article-button">Read more</button>
+                </Link>
+              </div>
             </div>
           </li>
         ))}

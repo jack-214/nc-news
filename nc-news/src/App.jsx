@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Header from "./components/Header";
 import MainRouter from "./components/MainROuter";
 import "./App.css";
