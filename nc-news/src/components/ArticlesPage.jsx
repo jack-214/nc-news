@@ -24,6 +24,28 @@ export default function ArticlesPage() {
     fetchArticles();
   }, []);
 
+  const handleVote = async (articleId, change) => {
+    setArticles((prevArticles) =>
+      prevArticles.map((article) =>
+        article.article_id === articleId
+          ? { ...article, votes: article.votes + change }
+          : article
+      )
+    );
+    try {
+      await fetch(
+        `https://northcoders-news-be-ngc3.onrender.com/api/articles/${articleId}`,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ inc_votes: change }),
+        }
+      );
+    } catch (error) {
+      console.error("Error updating vote:", error.message);
+    }
+  };
+
   return (
     <div className="articles-page">
       <ul className="article-list">
@@ -43,9 +65,19 @@ export default function ArticlesPage() {
                   |{" "}
                 </p>
                 <strong>Votes:</strong>{" "}
-                <button className="vote-button">{article.votes} +</button>{" "}
-                <button className="vote-button">-</button> |{" "}
-                <strong>Comments:</strong> {article.comment_count} |
+                <button
+                  className="vote-button"
+                  onClick={() => handleVote(article.article_id, 1)}
+                >
+                  {article.votes} +
+                </button>{" "}
+                <button
+                  className="vote-button"
+                  onClick={() => handleVote(article.article_id, -1)}
+                >
+                  -
+                </button>{" "}
+                | <strong>Comments:</strong> {article.comment_count} |
                 <p>
                   <strong>Posted:</strong>{" "}
                   {new Date(article.created_at).toLocaleDateString()}
