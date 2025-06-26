@@ -34,7 +34,7 @@ export default function TopNav() {
         <Link className="nav-link" to="/topics">
           Topics
         </Link>
-        <Link className="nav-link" to="/user">
+        <Link className="nav-link" to="/users">
           Users
         </Link>
       </div>

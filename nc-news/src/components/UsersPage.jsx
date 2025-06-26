@@ -1,7 +1,7 @@
 export default function UsersPage() {
   return (
     <>
-      <p>USERSPAGE</p>
+      <h3>USERSPAGE</h3>
     </>
   );
 }
