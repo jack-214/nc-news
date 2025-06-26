@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function TopicsPage() {
   const [topics, setTopics] = useState(null);
@@ -31,11 +32,10 @@ export default function TopicsPage() {
     <div className="topics-page">
       {topics.map((topic) => (
         <div className="topic-card" key={topic.slug}>
-          <p>
-            Topic:{" "}
-            {topic.slug[0].toUpperCase() + topic.slug.slice(1).toLowerCase()}
-          </p>
-          <p>Description: {topic.description}</p>
+          <Link to={`/articles?topic=${topic.slug}`}>
+            <img className="topic-img" src={topic.img_url} alt="topic-img" />
+            <h3>{topic.slug[0].toUpperCase() + topic.slug.slice(1)}</h3>
+          </Link>
         </div>
       ))}
     </div>

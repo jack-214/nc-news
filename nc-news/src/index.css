@@ -171,6 +171,33 @@ button:focus-visible {
   box-sizing: border-box;
 }
 
+.article-queries {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  text-align: left;
+}
+
+.article-filters {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+}
+
+.article-topic-button-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.article-topic-button {
+  padding: 0.2rem;
+  border-radius: 5px;
+}
+
 .article-list {
   list-style: none;
   padding-inline-start: 0;
@@ -188,6 +215,14 @@ button:focus-visible {
   width: 100%;
 }
 
+.article-title-link {
+  width: fit-content;
+}
+
+.article-title-link h3:hover {
+  color: #dfbfbf;
+}
+
 .article-card h3 {
   font-size: 14px;
   margin-left: 0rem;
@@ -201,7 +236,7 @@ button:focus-visible {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap; /* Wrap if space is tight */
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 
@@ -242,6 +277,10 @@ button:focus-visible {
   text-align: left;
 }
 
+.single-article-metadata {
+  font-size: 12px;
+}
+
 .single-article-img {
   width: 100%;
   text-align: center;
@@ -256,6 +295,46 @@ button:focus-visible {
   border-top: 1px solid #ff4747;
 }
 
+.comment-title-count {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.comment-count {
+  font-weight: 600;
+  color: white;
+  background-color: rgb(255, 99, 99);
+  padding-left: 6px;
+  padding-right: 6px;
+  border-radius: 25px;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  resize: vertical;
+  width: auto;
+  gap: 1rem;
+}
+
+.success-msg {
+  color: rgb(146, 146, 146);
+}
+
+.error-msg {
+  color: red;
+}
+
+.comment-form textarea {
+  min-height: 6rem;
+  background-color: #f2f2f2;
+  border: 1px solid #c8c8c8;
+  border-radius: 7px;
+  color: #191919;
+}
+
 .comments-list {
   list-style: none;
   padding-inline-start: 0;
@@ -263,13 +342,26 @@ button:focus-visible {
 
 .comment-list-item {
   border-bottom: 1px solid #d2d2d2;
+  font-size: 14px;
 }
 
 /*Topics page*/
 
 .topics-page {
-  display: grid;
-  grid-template-columns: auto auto auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 4rem;
+}
+
+.topic-card h3:hover {
+  color: #ffbcbc;
+}
+
+.topic-img {
+  width: 100%;
+  border-radius: 30px;
+  max-width: 20rem;
 }
 
 @media (min-width: 640px) {
@@ -322,6 +414,12 @@ button:focus-visible {
   }
   .single-article-img {
     width: 100%;
+  }
+
+  /*topics page*/
+  .topics-page {
+    display: grid;
+    grid-template-columns: auto auto auto;
   }
 }
 
