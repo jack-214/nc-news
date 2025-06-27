@@ -14,8 +14,9 @@
 }
 
 .header-mainrouter {
-  padding: 2rem;
-  min-height: 30rem;
+  padding: 1.5rem;
+  min-height: 20rem;
+  font-size: 13px;
 }
 
 a {
@@ -351,7 +352,7 @@ button:focus-visible {
 
 .comment-list-item {
   border-bottom: 1px solid #d2d2d2;
-  font-size: 14px;
+  font-size: 11px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -396,9 +397,16 @@ footer {
   color: white;
   position: relative;
   bottom: 0;
+  font-size: 11px;
 }
 
 @media (min-width: 640px) {
+  .header-mainrouter {
+    padding: 3rem;
+    min-height: 20rem;
+    font-size: 16px;
+  }
+
   h1 {
     font-size: 2.25rem;
     font-weight: bold;
@@ -450,10 +458,18 @@ footer {
     width: 100%;
   }
 
+  .comment-list-item {
+    font-size: 14px;
+  }
+
   /*topics page*/
   .topics-page {
     display: grid;
     grid-template-columns: auto auto auto;
+  }
+
+  footer {
+    font-size: 14px;
   }
 }
 
