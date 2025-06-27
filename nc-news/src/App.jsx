@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 import MainRouter from "./components/MainRouter";
 import "./App.css";
 import { BrowserRouter } from "react-router-dom";
@@ -10,8 +11,11 @@ function App() {
     <React.StrictMode>
       <UserProvider>
         <BrowserRouter>
-          <Header />
-          <MainRouter />
+          <div className="header-mainrouter">
+            <Header />
+            <MainRouter />
+          </div>
+          <Footer />
         </BrowserRouter>
       </UserProvider>
     </React.StrictMode>

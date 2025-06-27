@@ -16,7 +16,7 @@ export default function MainRouter() {
         element={<SingleArticlePage />}
       ></Route>
       <Route path="/topics" element={<TopicsPage />} />
-      <Route path="/users" element={<UsersPage />} />
+      {/* <Route path="/users" element={<UsersPage />} /> */}
       <Route path="*" element={<NotFoundPage />}></Route>
     </Routes>
   );

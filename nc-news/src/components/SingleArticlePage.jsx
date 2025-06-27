@@ -90,6 +90,25 @@ export default function SingleArticlePage() {
     }
   };
 
+  const handleDeleteComment = async (comment_id) => {
+    try {
+      const res = await fetch(
+        `https://northcoders-news-be-ngc3.onrender.com/api/comments/${comment_id}`,
+        {
+          method: "DELETE",
+        }
+      );
+      if (!res.ok) throw new Error("Failed to delete comment.");
+
+      setComments((prev) =>
+        prev.filter((comment) => comment.comment_id !== comment_id)
+      );
+    } catch (error) {
+      console.error("Delete error:", error.message);
+      alert("Unable to delete comment.");
+    }
+  };
+
   return (
     <div className="single-article-page">
       <div className="single-article-title-author">
@@ -141,13 +160,24 @@ export default function SingleArticlePage() {
           <ul className="comments-list">
             {comments.map((comment) => (
               <li className="comment-list-item" key={comment.comment_id}>
-                <p>
-                  {comment.author} | {dayjs(comment.created_at).fromNow()} |
-                  says:
-                </p>
-                <p>{comment.body}</p>
-                <p>Votes: {comment.votes}</p>
-                <p></p>
+                <div className="comment-body">
+                  <p>
+                    {comment.author} | {dayjs(comment.created_at).fromNow()} |
+                    says:
+                  </p>
+                  <p>{comment.body}</p>
+                  <p>Votes: {comment.votes}</p>
+                </div>
+                <div className="comment-delete-container">
+                  {user?.username === comment.author && (
+                    <button
+                      className="comment-delete-button"
+                      onClick={() => handleDeleteComment(comment.comment.id)}
+                    >
+                      Delete
+                    </button>
+                  )}
+                </div>
               </li>
             ))}
           </ul>

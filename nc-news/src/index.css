@@ -13,6 +13,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.header-mainrouter {
+  padding: 2rem;
+  min-height: 30rem;
+}
+
 a {
   font-weight: 500;
   color: #ff4747;
@@ -343,6 +348,17 @@ button:focus-visible {
 .comment-list-item {
   border-bottom: 1px solid #d2d2d2;
   font-size: 14px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.comment-delete-button {
+  background-color: #e8e8e8;
+  color: rgba(53, 53, 53, 0.87);
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  height: 2.5rem;
 }
 
 /*Topics page*/
@@ -367,6 +383,15 @@ button:focus-visible {
 /*Error not found page*/
 .error-not-found-page {
   padding-top: 5rem;
+}
+
+footer {
+  background-color: #ff4747;
+  margin: 0;
+  padding: 7rem;
+  color: white;
+  position: relative;
+  bottom: 0;
 }
 
 @media (min-width: 640px) {

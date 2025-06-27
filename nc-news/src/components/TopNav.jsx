@@ -34,9 +34,9 @@ export default function TopNav() {
         <Link className="nav-link" to="/topics">
           Topics
         </Link>
-        <Link className="nav-link" to="/users">
+        {/* <Link className="nav-link" to="/users">
           Users
-        </Link>
+        </Link> */}
       </div>
       <button className="icon" onClick={toggleLinks}>
         <FaBars />
