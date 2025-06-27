@@ -25,6 +25,8 @@ export default function SingleArticlePage() {
           `https://northcoders-news-be-ngc3.onrender.com/api/articles/${article_id}`
         );
 
+        if (res.status === 404) throw new Error("This article does not exist");
+
         if (!res.ok) throw new Error(`Failed to fetch article: ${res.status}`);
         const data = await res.json();
         setArticle(data.article);

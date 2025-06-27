@@ -12,7 +12,11 @@ export default function TopicsPage() {
         const res = await fetch(
           "https://northcoders-news-be-ngc3.onrender.com/api/topics"
         );
+
+        if (res.status === 404) throw new Error("This topic does not exist");
+
         if (!res.ok) throw new Error(`Failed to fetch topics: ${res.status}`);
+
         const data = await res.json();
         setTopics(data.topics);
       } catch (err) {

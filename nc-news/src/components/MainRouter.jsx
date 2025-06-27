@@ -4,6 +4,7 @@ import ArticlesPage from "./ArticlesPage";
 import SingleArticlePage from "./SingleArticlePage";
 import TopicsPage from "./TopicsPage";
 import UsersPage from "./UsersPage";
+import NotFoundPage from "./NotFoundPage";
 
 export default function MainRouter() {
   return (
@@ -16,6 +17,7 @@ export default function MainRouter() {
       ></Route>
       <Route path="/topics" element={<TopicsPage />} />
       <Route path="/users" element={<UsersPage />} />
+      <Route path="*" element={<NotFoundPage />}></Route>
     </Routes>
   );
 }
