@@ -177,7 +177,7 @@ export default function SingleArticlePage() {
                   {user?.username === comment.author && (
                     <button
                       className="comment-delete-button"
-                      onClick={() => handleDeleteComment(comment.comment.id)}
+                      onClick={() => handleDeleteComment(comment.comment_id)}
                     >
                       Delete
                     </button>
