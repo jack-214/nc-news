@@ -290,6 +290,7 @@ button:focus-visible {
 
 .vote-button:hover {
   background-color: white;
+  color: #ffbcbc;
 }
 
 .vote-button:focus,
