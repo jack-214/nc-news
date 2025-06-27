@@ -135,6 +135,12 @@ export default function SingleArticlePage() {
           <p className={article.comment_count === 0 ? "" : "comment-count"}>
             {article.comment_count}
           </p>
+          {user && (
+            <small>
+              logged in as{" "}
+              <span className="comment-logged-in-as">{user.username}</span>
+            </small>
+          )}
         </div>
         {user ? (
           <form onSubmit={handleSubmitComment} className="comment-form">

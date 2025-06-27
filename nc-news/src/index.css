@@ -340,6 +340,10 @@ button:focus-visible {
   color: #191919;
 }
 
+.comment-logged-in-as {
+  color: #ff4747;
+}
+
 .comments-list {
   list-style: none;
   padding-inline-start: 0;
