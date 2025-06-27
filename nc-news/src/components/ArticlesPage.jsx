@@ -142,8 +142,9 @@ export default function ArticlesPage() {
                   className="vote-button"
                   onClick={() => handleVote(article.article_id, 1)}
                 >
-                  {article.votes} +
+                  +
                 </button>{" "}
+                {article.votes}
                 <button
                   className="vote-button"
                   onClick={() => handleVote(article.article_id, -1)}

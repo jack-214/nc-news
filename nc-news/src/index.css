@@ -278,8 +278,23 @@ button:focus-visible {
 
 .vote-button {
   cursor: pointer;
-  font-size: 10px;
-  width: 3rem;
+  font-size: 12px;
+  font-weight: bold;
+  width: 1rem;
+  background-color: white;
+  color: #ff4747;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.vote-button:hover {
+  background-color: white;
+}
+
+.vote-button:focus,
+.vote-button:focus-visible {
+  outline: none;
 }
 
 /*single article*/
