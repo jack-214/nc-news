@@ -204,6 +204,11 @@ button:focus-visible {
   border-radius: 5px;
 }
 
+#topic-all-button {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
 .article-list {
   list-style: none;
   padding-inline-start: 0;
@@ -341,8 +346,13 @@ button:focus-visible {
   color: #191919;
 }
 
-.comment-logged-in-as {
+.logged-in-as {
   color: #ff4747;
+}
+
+.nav-logged-in-as {
+  padding: 0 2rem 0 0;
+  margin: 0;
 }
 
 .comments-list {
@@ -403,7 +413,7 @@ footer {
 @media (min-width: 640px) {
   .header-mainrouter {
     padding: 3rem;
-    min-height: 20rem;
+    min-height: 30rem;
     font-size: 16px;
   }
 

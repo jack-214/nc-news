@@ -137,8 +137,7 @@ export default function SingleArticlePage() {
           </p>
           {user && (
             <small>
-              logged in as{" "}
-              <span className="comment-logged-in-as">{user.username}</span>
+              logged in as <span className="logged-in-as">{user.username}</span>
             </small>
           )}
         </div>

@@ -108,6 +108,13 @@ export default function ArticlesPage() {
           >
             Football
           </button>
+          <button
+            className="article-topic-button"
+            onClick={() => handleTopicChange("")}
+            id="topic-all-button"
+          >
+            All
+          </button>
         </div>
       </div>
       <ul className="article-list">

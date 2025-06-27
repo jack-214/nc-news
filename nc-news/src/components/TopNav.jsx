@@ -1,8 +1,10 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
+import { useUser } from "./contexts/UserContext";
 
 export default function TopNav() {
+  const { user } = useUser();
   const [showLinks, setShowLinks] = useState(false);
   const menuRef = useRef(null);
 
@@ -24,6 +26,11 @@ export default function TopNav() {
 
   return (
     <div className="topnav" ref={menuRef}>
+      {user && (
+        <p className="nav-logged-in-as">
+          logged in as <span className="logged-in-as">{user.username}</span>
+        </p>
+      )}
       <div id="myLinks" className={showLinks ? "show" : "hide"}>
         <Link className="nav-link" to="/">
           Home
